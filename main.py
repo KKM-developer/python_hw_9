@@ -2,10 +2,10 @@ class TicTacToeBoard:
     def __init__(self):
         self.bool_player = True
         self.player = 'X'
-        self.field = [['-', '_', '-'],['-', '_', '-'],['-', '_', '-']]
+        self.field = [['-', '-', '-'],['-', '-', '-'],['-', '-', '-']]
 
     def new_game(self):
-        self.field = [['-', '_', '-'],['-', '_', '-'],['-', '_', '-']]
+        self.field = [['-', '-', '-'],['-', '-', '-'],['-', '-', '-']]
 
     def get_field(self):
         return self.field
@@ -17,9 +17,11 @@ class TicTacToeBoard:
                 or (self.field[0][0] and self.field[1][1] and self.field[2][2])
                 or (self.field[0][2] and self.field[1][1] and self.field[2][0])) == self.player:
             print(f'Winner {self.player}')
+            print(*self.get_field(), sep="\n")
             self.new_game()
         elif '-' not in (self.field[0] and self.field[1] and self.field[2]):
             print('Ничья')
+            print(*self.get_field(), sep="\n")
             self.new_game()
 
     def make_move(self, row, col):
@@ -36,13 +38,13 @@ class TicTacToeBoard:
 
 board = TicTacToeBoard()
 print(*board.get_field(), sep="\n")
-print(board.make_move(1, 1))
+board.make_move(1, 1)
 print(*board.get_field(), sep="\n")
-print(board.make_move(1, 1))
-print(board.make_move(1, 2))
+board.make_move(1, 1)
+board.make_move(1, 2)
 print(*board.get_field(), sep="\n")
-print(board.make_move(2, 1))
-print(board.make_move(2, 2))
-print(board.make_move(3, 1))
-print(board.make_move(2, 2))
+board.make_move(2, 1)
+board.make_move(2, 2)
+board.make_move(3, 1)
+board.make_move(2, 2)
 print(*board.get_field(), sep="\n")
